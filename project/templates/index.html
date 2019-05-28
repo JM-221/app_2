@@ -1,0 +1,37 @@
+<!-- templates/index.html -->
+
+{% extends "base_2.html" %}
+
+{% block content %}
+
+<h1>New topic? Go for it ;)	
+		<form action= "/" method="POST">
+		    <input name="text">
+		    <input type="submit">
+		</form>
+
+</h1>
+	<div class="block">
+		<meta http-equiv="refresh" content="6">
+
+
+		 <div class="row">
+		 
+		    <img src={{name1}} alt="uploading" width= "300" height="300"> 
+		 
+		    <img src={{name2}} alt="uploading" width= "300" height="300">
+		  
+		    <img src={{name3}} alt="uploading" width= "300" height="300">
+		  </div>
+		   <div class="row">
+		 
+		    <img src={{name4}} alt="uploading" width= "300" height="300"> 
+		 
+		    <img src={{name5}} alt="uploading" width= "300" height="300">
+		  
+		    <img src={{name6}} alt="uploading" width= "300" height="300">
+		  </div>
+		
+	</div>>	
+
+{% endblock %}
