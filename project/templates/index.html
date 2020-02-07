@@ -30,7 +30,7 @@
 	</div>
 
 	<!--<div id="refreshme">Refresh Me</div> -->
-	
+
 <script>
   $(document).ready(function() {
 //                $("#refreshme").click(function() {
@@ -44,10 +44,10 @@
 				//console.log(images);
 				$("#images-content").html(images)
 			});
-		}, 10000);     
-	
+		}, 10000);
+
 		$(document).on("click", "#images-content img", null, function() {
-			
+
 
 			let like = $(this).attr("data-like");
 			if (like === "false" || like === undefined) {
@@ -64,7 +64,7 @@
 			$(this).attr("data-like", like);
 
 		});
-		
+
 	});
 
 
@@ -72,7 +72,7 @@
 <style>
 	#images-content img[data-like="true"] {
 		border: solid 10px lightgreen;
-		
+
 
 	}
 
