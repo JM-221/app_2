@@ -12,12 +12,12 @@
 
 </h1>
 	<div class="block">
-		<meta http-equiv="refresh" content="6">
+<!--		<meta http-equiv="refresh" content="6">-->
 
 
 		 <!-- Photo Grid -->
 		<div class="row"> 
-		  <div class="column">
+		  <div class="column" id="images-content">
 		    <img src={{name1}} width= "300" height="300">
 		    <img src={{name2}} width= "300" height="300">
 		    <img src={{name3}} width= "300" height="300">
@@ -27,6 +27,59 @@
 		    
 		  </div>
 		 </div>
-	</div>>	
+	</div>
+
+	<!--<div id="refreshme">Refresh Me</div> -->
+	
+<script>
+  $(document).ready(function() {
+//                $("#refreshme").click(function() {
+		setInterval(function() {
+      $.ajax({
+				method: "GET",
+				url: "/magic",
+			}).done(function(data) {
+				let images = "";
+				data.forEach((d) => images += '<img src=' + d['img'] + ' width= "300" height="300">');
+				//console.log(images);
+				$("#images-content").html(images)
+			});
+		}, 10000);     
+	
+		$(document).on("click", "#images-content img", null, function() {
+			
+
+			let like = $(this).attr("data-like");
+			if (like === "false" || like === undefined) {
+				like = true
+				$.ajax({
+				method: "GET",
+				url: "/magic",
+					})
+					console.log($(this).attr("src"))
+			} else {
+				like = false
+			}
+
+			$(this).attr("data-like", like);
+
+		});
+		
+	});
+
+
+</script>
+<style>
+	#images-content img[data-like="true"] {
+		border: solid 10px lightgreen;
+		
+
+	}
+
+	#images-content img[data-like="false"] {
+		border: solid 10px red;
+	}
+</style>
 
 {% endblock %}
+

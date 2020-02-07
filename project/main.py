@@ -1,12 +1,14 @@
 # main.py
 
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, Response
 from flask_login import login_required, current_user
 from gevent.pywsgi import WSGIServer
 from .models import User,Link, db
+import json
 
 #------- image crawling part
-from .g_images_download import googleimagesdownload   #importing the library
+from .google_images_download import googleimagesdownload   #importing the library
+#from .g_images_download import googleimagesdownload   #importing the library
 from random import randint
 import random
 
@@ -38,20 +40,57 @@ def index():
         # Check to see if is already exists or not
         img_list = Link.query.filter_by(key_word=text).all()
 
+    # search for the in google
+    img_list  = search_the_images(text,img_list)
+    return update_content(img_list,'index.html')
 
-    if(len(img_list)==0):
+    
+def search_the_images(text, img_list):
+    '''
+    search for the given text in google
+    '''
+    counter = 0
+    while(len(img_list)<6):
         img_list = goog_search(text)
         update_the_database(text,img_list)
         #retrive it from db again
         img_list = Link.query.filter_by(key_word=text).all()
+        counter = counter +1
+        # if there is no results for this query
+        if (counter > 6) :
+            img_list = Link.query.filter_by(key_word="cat").all()
+            break
 
+    return img_list
 
+@main.route('/magic', methods=['GET'])
+def ajax_route():
 
-    return update_content(img_list,'index.html')
+    user = current_user
+    print (user)
+    img_list = Link.query.join(User).filter_by(name=user.name).all()    
+    while (len(img_list)<6):
+        img_list = Link.query.join(User).filter_by(name='Guest').all()
 
+    imgs = random.sample(img_list, 6)
     
+    data = []
+    for i in range (0,5):
+        data.append({'img': str(imgs[i].link)})
+    #if (current_user.is_active):
+    '''name1=imgs[0].link
+    name2=imgs[1].link
+    name3=imgs[2].link 
+    name4=imgs[3].link
+    name5=imgs[4].link
+    name6=imgs[5].link '''
+        
+    #data = [{'img': 'https://picsum.photos/200/300'}, {'img': 'https://picsum.photos/200/300'}, {'img': 'https://picsum.photos/200/300'}]
 
+    data_json = json.dumps(data)
+    resp = Response(response=data_json, status=200, mimetype="application/json")
 
+    return resp 
 
 
 def update_content(img_list,html_name):
@@ -80,6 +119,7 @@ def update_the_database(text,img_list):
             db.session.add(user)
 
     # adding to databse
+    print("--------list of imgaes",img_list)
     for img in (img_list):
         link = Link(key_word=text, link=img, owner = user)
         # user.link = link
@@ -94,7 +134,7 @@ def update_the_database(text,img_list):
 def goog_search(text):
     if text == "":
         text = "cat"
-    arguments["keywords"] = text
+    arguments["keywords"] = str(text)
     paths, img_list = goog_respond.download(arguments)  # passing the arguments to the function
     return img_list
 

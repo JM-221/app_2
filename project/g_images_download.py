@@ -411,7 +411,7 @@ class googleimagesdownload:
         if url:
             url = url
         elif similar_images:
-            print(similar_images)
+            #print(similar_images)
             keywordem = self.similar_images(similar_images)
             url = 'https://www.google.com/search?q=' + keywordem + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
         elif specific_site:
@@ -667,7 +667,7 @@ class googleimagesdownload:
 
     # Finding 'Next Image' from the given raw page
     def _get_next_item(self,s):
-        print(s)
+        #print(s)
         start_line = s.find('rg_meta notranslate')
         if start_line == -1:  # If no links are found then give an error!
             end_quote = 0
@@ -716,7 +716,8 @@ class googleimagesdownload:
                 #format the item for readability
                 object = self.format_object(object)
                 if arguments['metadata']:
-                    print("\nImage Metadata: " + str(object))
+                    #print("\nImage Metadata: " + str(object))
+                    pass
 
                 #download the images
                 download_status,download_message,return_image_name,absolute_path = self.download_image(object['image_link'],object['image_format'],main_directory,dir_name,count,arguments['print_urls'],arguments['socket_timeout'],arguments['prefix'],arguments['print_size'],arguments['no_numbering'],arguments['no_download'])
@@ -833,9 +834,10 @@ class googleimagesdownload:
                 i = 0
                 while i < len(search_keyword):      # 2.for every main keyword
                     iteration = "\n" + "Item no.: " + str(i + 1) + " -->" + " Item name = " + str(pky) + str(search_keyword[i] + str(sky))
-                    print(iteration)
+                    #print(iteration)
                     print("Evaluating...")
                     search_term = pky + search_keyword[i] + sky
+
                     if arguments['image_directory']:
                         dir_name = arguments['image_directory']
                     elif arguments['no_directory']:
@@ -848,12 +850,14 @@ class googleimagesdownload:
                     params = self.build_url_parameters(arguments)     #building URL with params
 
                     url = self.build_search_url(search_term,params,arguments['url'],arguments['similar_images'],arguments['specific_site'],arguments['safe_search'])      #building main search url
-                    print(url)
+                   
 
                     if limit < 101:
                         raw_html = self.download_page(url)  # download page
                     else:
                         raw_html = self.download_extended_page(url,arguments['chromedriver'])
+                    
+                    
 
                     if arguments['no_download']:
                         print("Starting to Print Image URLS")
