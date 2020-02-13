@@ -5,6 +5,8 @@ from flask_login import login_required, current_user
 from gevent.pywsgi import WSGIServer
 from .models import User,Link, db
 import json
+import pdb
+
 
 #------- image crawling part
 from .google_images_download import googleimagesdownload   #importing the library
@@ -25,6 +27,7 @@ arguments = {"keywords": "cat", "no_download": "no_download", "limit": 30}  # cr
 @main.route('/', methods=['GET', 'POST'])
 def index():
     text = "cat"
+    pdb.set_trace()
 
     user = current_user
 
@@ -52,6 +55,7 @@ def search_the_images(text, img_list):
     counter = 0
     while(len(img_list)<6):
         img_list = goog_search(text)
+        breakpoint()
         update_the_database(text,img_list)
         #retrive it from db again
         img_list = Link.query.filter_by(key_word=text).all()
@@ -68,6 +72,7 @@ def ajax_route():
 
     user = current_user
     print (user)
+    breakpoint()
     img_list = Link.query.join(User).filter_by(name=user.name).all()    
     while (len(img_list)<6):
         img_list = Link.query.join(User).filter_by(name='Guest').all()

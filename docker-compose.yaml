@@ -1,0 +1,8 @@
+version: "2"
+services:
+   avashaee/webapp:v3.0:
+      build:
+         context: .
+         dockerfile: test.Dockerfile
+      volumes:
+         - ./db:/app/project/db
