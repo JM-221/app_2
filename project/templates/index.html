@@ -44,19 +44,34 @@
 				//console.log(images);
 				$("#images-content").html(images)
 			});
-		}, 10000);
+		}, 7000);
+
+		$(document).on("dblclick", "#images-content img", null, function() {
+			alert("DBLCLICK");
+		});
 
 		$(document).on("click", "#images-content img", null, function() {
-
 
 			let like = $(this).attr("data-like");
 			if (like === "false" || like === undefined) {
 				like = true
+
 				$.ajax({
-				method: "GET",
-				url: "/magic",
-					})
-					console.log($(this).attr("src"))
+					method: "POST",
+					url: "/similar",
+					data: {
+						src: $(this).attr("src")
+					}
+				}).done(function(data) {
+					let images = "";
+					data.forEach((d) => images += '<img src=' + d['img'] + ' width= "300" height="300">');
+					//console.log(images);
+					$("#images-content").html(images)
+				}).fail(function() {
+					console.log("similar IS SICK");
+				});
+
+				console.log($(this).attr("src"))
 			} else {
 				like = false
 			}
