@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b8c71c1-29f3-4f5b-9969-4f54265ae6bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../project/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../project/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../project/db.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,50 +22,14 @@
   </component>
   <component name="ProjectId" id="1XSPAgLXQM5FmNc56V110feIcb4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="app_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app_2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app_2" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="app_2" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/workspace/pole_validation_project" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -105,6 +68,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2084" y="96" width="1657" height="741" key="DiffContextDialog" timestamp="1581891019476">
+      <screen x="1920" y="0" width="1920" height="936" />
+    </state>
+    <state x="2084" y="96" width="1657" height="741" key="DiffContextDialog/65.24.1855.912/1920.0.1920.936@1920.0.1920.936" timestamp="1581891019476" />
     <state x="2170" y="92" key="MergeDialog" timestamp="1581036483270">
       <screen x="1920" y="0" width="1920" height="975" />
     </state>
@@ -113,32 +80,14 @@
       <screen x="1920" y="0" width="1920" height="975" />
     </state>
     <state x="2622" y="205" key="MultipleFileMergeDialog/65.24.1855.951/1920.0.1920.975@1920.0.1920.975" timestamp="1581036483280" />
-    <state x="2573" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1581036393297">
-      <screen x="1920" y="0" width="1920" height="975" />
+    <state x="2573" y="301" key="com.intellij.ide.util.TipDialog" timestamp="1581890920197">
+      <screen x="1920" y="0" width="1920" height="936" />
     </state>
+    <state x="2573" y="301" key="com.intellij.ide.util.TipDialog/65.24.1855.912/1920.0.1920.936@1920.0.1920.936" timestamp="1581890920197" />
     <state x="2573" y="314" key="com.intellij.ide.util.TipDialog/65.24.1855.951/1920.0.1920.975@1920.0.1920.975" timestamp="1581036393297" />
     <state x="2677" y="280" key="git4idea.merge.GitMergeDialog" timestamp="1581036610047">
       <screen x="1920" y="0" width="1920" height="975" />
     </state>
     <state x="2677" y="280" key="git4idea.merge.GitMergeDialog/65.24.1855.951/1920.0.1920.975@1920.0.1920.975" timestamp="1581036610047" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
